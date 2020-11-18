@@ -3,6 +3,7 @@ import './App.scss';
 
 import Header from './components/Header';
 import Banner from './components/Banner';
+import Showcase from './components/Showcase';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
     <div className="App">
       <Header />
       <Banner />
+      <Showcase />
     </div>
   );
 }
