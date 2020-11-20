@@ -1,0 +1,57 @@
+@import './Variables.scss';
+
+.showcase {
+    height: 50vh;
+    height: calc(var(--vh, 1vh) * 50);
+    .showcase__nav {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 6;
+        padding: 32px;
+        box-sizing: border-box;
+
+        @include media('<=tablet'){
+            display: none;
+        }
+
+        .showcase__arrow {
+            background-color: rgba(0,0,0,0.4);
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            svg {
+                color: $darkgray;
+                height: 20px;
+                width: 20px;
+            }
+            &.disabled {
+                opacity: 0.3;
+            }
+        }
+    }
+    .row {
+        .showcase__project {
+            .showcase__projectDetails {
+                span {
+    
+                }
+                h2 {
+    
+                }
+            }
+            .showcase__img {
+                img {
+    
+                }
+            }
+        }
+    }
+}

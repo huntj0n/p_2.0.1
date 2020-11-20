@@ -8,19 +8,19 @@ const showcaseProjects = [
         id: 1, 
         subtitle: 'Amazon',
         title: 'Work Hard. Have Fun. Make Jeff Money.',
-        image: [require('../assets/coffee.jpeg')],
+        img: 'espresso',
     },
     {
         id: 2, 
         subtitle: 'EvilCorp', 
         title:'Helps you connect to corporate marketers by selling your personal data',
-        image: 'desert.jpeg',
+        img: 'airline',
     },
     {
         id: 3,
         subtitle: 'Ivory Foundation',
         title: 'Living life through giving',
-        image: 'mountains.jpeg',
+        img: 'run',
     },
     // {
     //     id: 4,
@@ -34,31 +34,27 @@ const Showcase = () => {
         <section className='showcase'>
             <div className="container-fluid">
                 <div className="showcase__nav">
-                    <div className="showcase__navPrev disbaled">
+                    <div className="showcase__arrow disabled">
                         <ShowcasePrev />
                     </div>
-                    <div className="showcase__navNext">
+                    <div className="showcase__arrow">
                         <ShowcaseNext />
                     </div>
                 </div>
                 <div className="row">
-                    <div className="showcase__project">
-                        {showcaseProjects.map((project) => (
-                            <div className="project" key={project.id}>
-                                <div className="project__details">
-                                    <span>{project.subtitle}</span>
-                                    <h2>{project.title}</h2>
-                                </div>
-                                <div className="project__image">
-                                    <img 
-                                    // src={`../assets/${project.image}`} 
-                                    src={project.image}
-                                    alt=''/>
-                                </div>
+                    {showcaseProjects.map((project) => (
+                        <div className="showcase__project" key={project.id}>
+                            <div className="showcase__projectDetails">
+                                <span>{project.subtitle}</span>
+                                <h2>{project.title}</h2>
                             </div>
-                        ))}
-                    </div>
+                            <div className="showcase__img">
+                                <img src={require(`../assets/${project.img}.png`)} alt=""/>
+                            </div>
+                        </div>
+                    ))}
                 </div>
+                <img src={require('../assets/espresso.png')} alt=""/>
             </div>
         </section>
     )
