@@ -58,6 +58,7 @@
                 display: flex;
                 align-items: center;
                 font-weight: 600;
+                transition: .3s;
 
                 @include media('<=tablet'){
                     font-size: 1.3rem; 
@@ -86,9 +87,11 @@
                     }
                 }
                 &:hover {
+                    
                     svg{
                         background: $darkgray;
                         color: $lightgray;
+                        transform: scale(1.1);
                     }
                 }
             }

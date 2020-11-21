@@ -49,12 +49,12 @@ const Showcase = () => {
                                 <h2>{project.title}</h2>
                             </div>
                             <div className="showcase__img">
-                                <img src={require(`../assets/${project.img}.png`)} alt=""/>
+                                <div style={{backgroundImage: `url('../assets/${project.img}.png')`}} alt=""/>
                             </div>
                         </div>
                     ))}
                 </div>
-                <img src={require('../assets/espresso.png')} alt=""/>
+                <img src={require('./../assets/espresso.png')} alt=""/>
             </div>
         </section>
     )
