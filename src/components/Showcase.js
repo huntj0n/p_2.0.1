@@ -3,24 +3,29 @@ import '../Styles/Showcase.scss';
 import { ReactComponent as ShowcaseNext} from '../assets/arrow-right.svg';
 import { ReactComponent as ShowcasePrev} from '../assets/arrow-left.svg';
 
+import Airline from '../../src/components/images/airline.png'
+import Espresso from '../../src/components/images/espresso.png'
+import Run from '../../src/components/images/run.png'
+
+
 const showcaseProjects = [
     {
         id: 1, 
         subtitle: 'Amazon',
         title: 'Work Hard. Have Fun. Make Jeff Money.',
-        img: 'espresso',
+        pic: Espresso
     },
     {
         id: 2, 
         subtitle: 'EvilCorp', 
         title:'Helps you connect to corporate marketers by selling your personal data',
-        img: 'airline',
+        pic: Airline
     },
     {
         id: 3,
         subtitle: 'Ivory Foundation',
         title: 'Living life through giving',
-        img: 'run',
+        pic: Run
     },
     // {
     //     id: 4,
@@ -49,12 +54,11 @@ const Showcase = () => {
                                 <h2>{project.title}</h2>
                             </div>
                             <div className="showcase__img">
-                                <div style={{backgroundImage: `url('../assets/${project.img}.png')`}} alt=""/>
+                                <img src={project.pic} alt=""/>
                             </div>
                         </div>
                     ))}
                 </div>
-                <img src={require('./../assets/espresso.png')} alt=""/>
             </div>
         </section>
     )
