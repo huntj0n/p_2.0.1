@@ -1,0 +1,84 @@
+@import './Variables.scss';
+
+.introOverlay {
+    .introOverlay__top {
+        height: 50vh;
+        height: calc(var(--vh, 1vh) * 50);
+        width: 100%;
+        position: absolute;
+        z-index: 8;
+
+        .introOverlay__topSection {
+            position: absolute;
+            height: 100%;
+            width: calc(100vw / 3);
+            background-color: black;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            @include media("<=tablet"){
+                width: 100vw;
+            }
+
+            &:nth-child(2){
+                left: calc(100vw / 3);
+                background-color: black;
+
+                @include media("<=tablet"){
+                    display: none;
+                }
+            }
+
+            &:nth-child(3){
+                left: calc((100vw / 3) * 2);
+                background-color: black;
+
+                @include media("<=tablet"){
+                    display: none;
+                }
+            }
+        }
+    }
+    .introOverlay__bottom {
+        height: 50vh;
+        height: calc(var(--vh, 1vh) * 50);
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        z-index: 8;
+
+        .introOverlay__bottomSection {
+             position: absolute;
+            height: 100%;
+            width: calc(100vw / 3);
+            background-color: black;
+            bottom: 0;
+            right: calc((100vw / 3) * 2);
+
+            @include media("<=tablet"){
+                right: 0;
+                width: 100vw;
+            }
+
+            &:nth-child(2){
+                right: calc(100vw / 3);
+
+                @include media("<=tablet"){
+                    width: 100vw;
+                    top: 100%;
+                    right: 0;
+                }
+            }
+
+            &:nth-child(3){
+                right: 0;
+
+                @include media("<=tablet"){
+                    width: 100vw;
+                    top: 200%;
+                }
+            }
+        }
+    }
+}

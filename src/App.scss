@@ -3,10 +3,11 @@
 
 @import './Styles/Variables.scss';
 @import './Styles/Header.scss';
+@import './Styles/IntroOverlay.scss';
 
 body,
 html {
-  // visibility: hidden;
+  visibility: hidden;
   user-select: none;
   background: $lightgray;
   overscroll-behavior: none;
