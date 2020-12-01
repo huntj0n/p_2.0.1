@@ -18,7 +18,7 @@ const showcaseProjects = [
     {
         id: 2, 
         subtitle: 'EvilCorp', 
-        title:'Helps you connect to corporate marketers by selling your personal data',
+        title:'Helps us sell you',
         pic: Airline
     },
     {

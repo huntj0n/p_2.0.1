@@ -7,6 +7,9 @@ import Showcase from './components/Showcase';
 import IntroOverlay from './components/IntroOverlay';
 
 import gsap from 'gsap';
+import About from './pages/About';
+import Resume from './pages/Resume';
+import Contact from './pages/Contact';
 
 function App() {
 
@@ -33,14 +36,14 @@ function App() {
     .to('.introOverlay__topSection', 1.5, {
       height: 0,
       ease: "expo.inOut",
-      stagger: 0.3
+      stagger: 0.4
     })
     .to('.introOverlay__bottomSection', 1.5, {
       width: 0,
       ease: "expo.inOut",
-      delay: -.6,
+      delay: -.8,
       stagger: {
-        amount: 0.3
+        amount: 0.4
       }
     })
     .to('.introOverlay', 0, {css: {display: 'none'}})
@@ -61,6 +64,10 @@ function App() {
       <Header />
       <Banner />
       <Showcase />
+
+      <About />
+      {/* <Resume /> */}
+      {/* <Contact /> */}
     </div>
   );
 }

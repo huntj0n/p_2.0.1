@@ -3,6 +3,7 @@
 .showcase {
     height: 50vh;
     height: calc(var(--vh, 1vh) * 50);
+    box-sizing: border-box;
     .showcase__nav {
         position: absolute;
         bottom: 0;
