@@ -1,6 +1,7 @@
 @import './Variables.scss';
 
 .introOverlay {
+    margin: 0;
     .introOverlay__top {
         height: 50vh;
         height: calc(var(--vh, 1vh) * 50);

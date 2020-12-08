@@ -4,12 +4,12 @@ import './App.scss';
 import Header from './components/Header';
 import Banner from './components/Banner';
 import Showcase from './components/Showcase';
-import IntroOverlay from './components/IntroOverlay';
-
-import gsap from 'gsap';
 import About from './pages/About';
 import Resume from './pages/Resume';
 import Contact from './pages/Contact';
+import IntroOverlay from './components/IntroOverlay';
+
+import gsap from 'gsap';
 
 function App() {
 
@@ -66,8 +66,8 @@ function App() {
       <Showcase />
 
       <About />
-      {/* <Resume /> */}
-      {/* <Contact /> */}
+      <Resume />
+      <Contact />
     </div>
   );
 }
