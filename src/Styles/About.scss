@@ -1,8 +1,9 @@
 @import './Variables.scss';
 
 .about {
+    display: none;
     margin: 0;
     height: 75vh;
     width: 100%;
-    background: linear-gradient(white, $lightgray 40%);
+    background: linear-gradient(white, $lightgray);
 }

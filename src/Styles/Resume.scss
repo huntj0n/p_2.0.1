@@ -1,8 +1,9 @@
 @import './Variables.scss';
 
 .resume {
+    display: none;
     margin: 0;
     height: 75vh;
     width: 100%;
-    background-color: $lightgray;
+    background: linear-gradient(white, $lightgray);
 }

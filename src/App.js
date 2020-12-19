@@ -1,74 +1,80 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import {Route} from 'react-router-dom';
 import './App.scss';
 
 import Header from './components/Header';
-import Banner from './components/Banner';
-import Showcase from './components/Showcase';
-import About from './pages/About';
-import Resume from './pages/Resume';
-import Contact from './pages/Contact';
-import IntroOverlay from './components/IntroOverlay';
-
+import Navigation from './components/Navigation';
 import gsap from 'gsap';
+
+//pages
+import Home from './components/Home';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Resume from './pages/Resume';
+
+//routes
+const routes = [
+  {path: '/', name: 'home', Component: Home},
+  {path: '/about', name: 'About', Component: About},
+  {path: '/contact', name: 'Contact', Component: Contact},
+  {path: '/resume', name: 'Resume', Component: Resume},
+]
+
+function debounce(fn, ms) {
+  let timer;
+  return () => {
+    clearTimeout(timer);
+    timer = setTimeout(()=> {
+      timer = null;
+      fn.apply(this, arguments)
+    }, ms)
+  }
+}
 
 function App() {
 
-  //mobile device vh
-  useEffect(() => {
-    let vh = window.innerHeight * .01;
+  //prevents white flashing on load
+  gsap.to('body', 0, {css: {visibility: "visible"}})
+
+  const [dimensions, setDimensions] = useState({
+    height: window.innerHeight,
+    width: window.innerWidth
+  }, 1000)
+
+  useEffect(()=>{
+    //mobile device vh
+    let vh = dimensions.height * .01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
 
-    gsap.to('body', 0, {css: {visibility: "visible"}})
-
-    //gsap timeline
-    const tl = gsap.timeline();
-
-    tl.from('.line span', 1.8, {
-      opacity: 0,
-      y: 100,
-      ease: 'power4.out',
-      delay: 1,
-      skewY: 7,
-      stagger: {
-        amount: 0.3
-      }
-    })
-    .to('.introOverlay__topSection', 1.5, {
-      height: 0,
-      ease: "expo.inOut",
-      stagger: 0.4
-    })
-    .to('.introOverlay__bottomSection', 1.5, {
-      width: 0,
-      ease: "expo.inOut",
-      delay: -.8,
-      stagger: {
-        amount: 0.4
-      }
-    })
-    .to('.introOverlay', 0, {css: {display: 'none'}})
-    .from('.showcase__img img', 1.5, {
-      scale: 1.4,
-      ease: "expo.inOut",
-      delay: -2,
-      stagger: {
-        amount: 0.4
-      }
+    const debouncedHandleResize = debounce(function handleResize() {
+      setDimensions({
+        height: window.innerHeight,
+        width: window.innerWidth
+      });
     })
 
+    window.addEventListener("resize", debouncedHandleResize);
+    
+    return () => {
+      window.removeEventListener("resize", debouncedHandleResize)
+    }
   }, [])
 
   return (
-    <div className="App">
-      <IntroOverlay />
-      <Header />
-      <Banner />
-      <Showcase />
-
-      <About />
-      <Resume />
-      <Contact />
-    </div>
+    <>
+      <Header dimensions={dimensions}/>
+      {console.log(dimensions)}
+      <div className="App">
+        {routes.map(({path, Component}) => (
+          <Route
+            key={path}
+            exact path={path}>
+              <Component/>
+          </Route>
+        ))}
+      </div>
+      <Navigation />
+    </>
   );
 }
 
